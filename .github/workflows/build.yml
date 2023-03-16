@@ -1,0 +1,24 @@
+name: build
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build-wikijs3-preview-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Build the wikijs3-preview Docker image
+        run: |
+          docker build . --tag ghcr.io/hostwiki/wikijs3-preview:latest
+          docker push ghcr.io/hostwiki/wikijs3-preview:latest

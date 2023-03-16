@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  wiki:
+    image: ghcr.io/hostwiki/wikijs3-preview:latest
+    container_name: wikijs3-preview
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment:
+      - DB_TYPE=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=wikijs
+      - DB_PASS=Cv2t4Z5At3PKLmpV
+      - DB_NAME=wikijs
+
+  db:
+    image: postgres:15-alpine
+    container_name: wikijs-db
+    environment:
+      - POSTGRES_USER=wikijs
+      - POSTGRES_PASSWORD=Cv2t4Z5At3PKLmpV
+      - POSTGRES_DB=wikijs
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
