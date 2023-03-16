@@ -20,3 +20,8 @@ Open your browser and access it via http://localhost:3000
 
 The Wiki.js 3 preview branch is cloned from https://github.com/requarks/wiki/tree/vega.  
 Please see the readme of that repo to know its current limitations.
+
+### Dashboard
+
+<img width="1653" alt="image" src="https://user-images.githubusercontent.com/16838612/225695890-24401928-ac3e-43ac-a32b-1a44d40c39f4.png">
+
