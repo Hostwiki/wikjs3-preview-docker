@@ -1,4 +1,4 @@
-FROM node:18-alpine as builder
+FROM node:16-alpine as builder
 
 RUN apk add yarn g++ make cmake python3 git --no-cache
 
